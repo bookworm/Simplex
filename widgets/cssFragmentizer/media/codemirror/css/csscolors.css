@@ -1,0 +1,59 @@
+html {
+  cursor: text;
+}
+
+.editbox {
+  margin: .4em;
+  padding: 0 0 0 26px;
+  font-family: Monaco, monospace; 
+  font-size: 14px;   
+  color: #fefefe;
+}
+
+pre.code, .editbox {
+  color: #fefefe;
+}
+
+.editbox p {
+  margin: 0;
+}
+
+span.css-select-op {
+  color: #ffff00
+} 
+
+span.css-punctuation {
+  color: #fff;
+}   
+
+span.css-unit {
+  color: #c6f4ff
+}
+
+span.css-value {
+  color: #d1ff56
+}
+
+span.css-identifier {
+  color: #00202d
+}
+
+span.css-selector {
+  color: #ffd4ff; 
+}
+
+span.css-important {
+  color: #00F;
+}
+
+span.css-colorcode {
+  olor: #0d0e0b 
+}
+
+span.css-comment {
+  color: #242424
+}
+
+span.css-string {
+  color: #222
+}

@@ -1,0 +1,75 @@
+#modes-list-wrap {
+  width: 600px;
+  height: 192px;
+  background: url('../images/bg-select-mode.png') no-repeat; 
+  position: fixed;
+  top: 220px;
+} 
+  #modes-list { top: 10px; position: relative; }
+    #modes-list li {
+      background: url('../images/icon.png') no-repeat;
+      width: 32px;
+      height: 32px;  
+      margin: 10px 0px 0px 10px;     
+      list-style-image: none;
+      list-style: none;
+    }  
+    
+      .mode-select { display: block; text-indent: -9999px; width: 21px; height: 24px; border-bottom: none; }
+       #style-mode a { background: url('../images/icons-sprite.png') no-repeat; margin: 7px; position: relative; top: 6px; }
+    #settings-mode a { background: url('../images/icons-sprite.png') no-repeat 0px -36px; margin: 6.5px; position: relative; top: 4.5px; }
+        #edit-mode a { background: url('../images/icons-sprite.png') no-repeat 0px -110px; margin: 6.6px; position: relative; top: 3px; }
+      #layout-mode a { background: url('../images/icons-sprite.png') no-repeat 0px -76px; margin: 7.5px; position: relative; top: 6.5px; }
+      
+      #mode-label { position: absolute; margin-left: 46px; }   
+      
+      #mode-label .icon { width: 9px; height: 16px; background: url('../images/label.png') no-repeat; display: block; float: left; }
+      #mode-label .label { margin: 1px 0 0 6px; position: relative; top: 1px; }  
+      
+ #style-mode-top { width: 634px; height: 58px; background: url('../images/style-mode-top.png') no-repeat; }
+#style-mode-center { width: 634px; min-height: 210px; background: url('../images/style-mode-center.png') repeat-y; }
+#style-mode-bottom { width: 634px; height: 51px; background: url('../images/style-mode-bottom.png') no-repeat; }      
+
+#mode-divs { position: fixed; top: 220px; } 
+
+               #element-selector-button { width: 154px !important; height: 33px; background: url('../images/elem-input.png') no-repeat; border: none; float: left; margin: 14px; }
+#element-selector-button .ui-selectmenu-status 
+                                        { color: #FFFFFF; font-family: "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 15px; font-weight: lighter; }
+#element-selector-button .ui-icon-triangle-1-s 
+                                        { width: 9px; height: 5px; background: url('../images/elem-input-down.png') no-repeat; margin: -2px 6px 0 0; float: right; }
+                      #element-selector { background: none }     
+
+         #element-selector-menu { background-color: #fff; border: none; }      
+#element-selector-menu li:hover { background: none; }   
+
+       #select-it { display: block; width: 24px; height: 30px; background: url('../images/selector-sprite.png') no-repeat 0px -30px; float: left; text-indent: -9999px; margin: 16px 0 0 -17px; }
+#select-it.active { background: url('../images/selector-sprite.png') no-repeat 0px 0px } 
+
+   .code-editor-top,
+.code-editor-bottom,
+.code-editor-center { width: 604px }
+   .code-editor-top { height: 22px; background: url('../images/editor-top.png') no-repeat; }
+.code-editor-center { background: url('../images/editor-center.png') repeat-y; height: 110px; overflow-y: hidden; }
+.code-editor-bottom { height: 26px; background: url('../images/editor-bottom.png') no-repeat; }
+  .code-editor-wrap { float: left; margin: 14px; }
+
+#mode-divs { margin-left: 100px; }     
+
+             #save-css { background: url('../images/save-css-sprite.png') no-repeat; width: 96px; height: 29px; display: block; float: right; border-bottom: none; margin-right: 15px; font-size: 12px; color: #222; font-family: "Helvetica Neu Bold", "Helvetica Neu", Helvetica, Verdana, Arial, sans-serif; }
+      #save-css:active,
+      #save-css.saving { background: url('../images/save-css-sprite.png') no-repeat 0px -30px }
+       #save-css .text { margin: 9px 0px 0px 20px; display: block; }
+#save-css.saving .text { font-size: 11px }
+
+#style-mode-center #color-picker-wrap { float:left; } 
+ 
+#going-back .icon { width: 20px; height: 18px; background: url('../images/back.png') no-repeat; display: block; float: left; }
+#going-back .text { color: #444; font-size: 14px; font-family: "Helvetica Neu Bold", "Helvetica Neu", Helvetica, Verdana, Arial, sans-serif; display: block; float: left; margin: 3px 0 0 6px; }      
+
+               #style-mode-selects-wrap { float: left; margin: 25px 0 0 -85px; text-align: right; }
+                    #style-mode-selects { list-style: none }
+                 #style-mode-selects li { height: 25px }
+                  #style-mode-selects a { color: #444; font-size: 11px; font-family: "Helvetica Neu Bold", "Helvetica Neu", Helvetica, Verdana, Arial, sans-serif; float: left; }
+    #style-mode-selects li.active .icon { background: url('../images/active-mode.png') no-repeat; float: left; height: 23px; left: 9px; margin-top: -6px; position: relative; width: 12px; }
+#style-mode-selects li#css-mode.active .icon 
+                                        { left: 21px }
