@@ -53,7 +53,9 @@ class Splex_Config
     
     // If We Have Simplex installed as a plugin we will over-ride some of the settings with params from the plugin.   
     if($core == true)       
-    {
+    {              
+      $this->setConfigDefaults();
+      
       if(defined('SIMPLEX_LOADED_AS_PLUGIN'))
         $this->setPluginConfig();
       else
@@ -70,7 +72,26 @@ class Splex_Config
       $this->loadConfig_Class($configFilename);  
     elseif(strpos($configFilename, 'yaml')) 
       $this->loadConfig_Yaml($configFilename);
-  }    
+  } 
+    
+// ------------------------------------------------------------------------
+
+  /**
+   * Sets defaults.
+   *
+   * @return void
+   **/
+  private function setConfigDefaults()
+  {
+    $this->configVars['moduleTools']           = false;
+    $this->configVars['muwtEnabled']           = false;  
+    $this->configVars['structEnabled']         = false;
+    $this->configVars['jpogstoragemech']       = 'yaml';
+    $this->configVars['mediaCacheTime']        = 60;
+    $this->configVars['gzipCSS']               = true;
+    $this->configVars['gzipJS']                = true;
+    $this->configVars['mediaConflictResolve']  = false;
+  }  
   
 // ------------------------------------------------------------------------
           
@@ -197,7 +218,7 @@ class Splex_Config
     $splex            = getSplexInstance();
     $filename         = str_replace('.php', '', $configFilename);
     $configClass      = $splex->loader->load_class($filename, capitalizeWords($filename, '_'));     
-    $this->configVars = get_object_vars($configClass);
+    $this->configVars = array_merge($this->configVars, get_object_vars($configClass));
   }   
   
 // ------------------------------------------------------------------------
@@ -213,6 +234,6 @@ class Splex_Config
     $splex = getSplexInstance();      
     $splex->loader->load_include('sfYaml.php'); 
     $this->configFilepath = $splex->loader->getFilePath($configFilename, 'files');
-    $this->configVars = sfYaml::load($this->configFilepath);
+    $this->configVars = array_merge($this->configVars, sfYaml::load($this->configFilepath));
   }
 }
