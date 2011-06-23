@@ -134,13 +134,12 @@ class Simplex Extends Splex_Base
    * @return void
    **/
   private function loadConfig()    
-  {   
-    $this->config = $this->loader->load_class('splex_config', 'Splex_Config', 'php', true, 
-                    array('configFilename' => $this->MY_SPLEX_CONFIG));  
+  {              
+    $config = $this->loader->load_class('splex_config', 'Splex_Config', 'php', false); 
+    $this->config = new $config(array('configFilename' => $this->MY_SPLEX_CONFIG));  
      
-    $tconfigFilename = $this->templateName . '.php';                                   
-    $this->tconfig = $this->loader->load_class('splex_config', 'Splex_Config', 'php', true, 
-                    array('configFilename' => $tconfigFilename, 'core' => false));  
+    $tconfigFilename = $this->templateName . '_' .  'config' .'.php';                                   
+    $this->tconfig = new $config(array('configFilename' => $tconfigFilename, 'core' => false));    
   }    
 
 // ------------------------------------------------------------------------
