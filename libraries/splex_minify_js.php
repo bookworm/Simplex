@@ -13,7 +13,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  *    
  * @package     simplex
  * @subpackage  helpers
- * @version     0.7 alpha 
+ * @version     1.0 beta 
  * @author      Ken Erickson AKA Bookworm http://www.bookwormproductions.net
  * @copyright   Copyright 2009 - 2011 Design BreakDown, LLC.
  * @license     http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2       

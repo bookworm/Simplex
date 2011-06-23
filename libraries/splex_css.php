@@ -21,7 +21,7 @@ $splex->loader->load_include(array('splex_cssvalue.php', 'splex_cssurl.php','spl
  * @credits     Parts of this code were pulled from cssScaffold https://github.com/anthonyshort/Scaffold/
  * @package     simplex
  * @subpackage  libraries
- * @version     0.7 alpha 
+ * @version     1.0 beta 
  * @author      Ken Erickson AKA Bookworm http://www.bookwormproductions.net
  * @copyright   Copyright 2009 - 2011 Design BreakDown, LLC.  
  * @author      2010 Raphael Schweikert http://www.sabberworm.com/

@@ -10,7 +10,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  *
  * @package     simplex
  * @subpackage  core
- * @version     0.7 alpha 
+ * @version     1.0 beta 
  * @author      Ken Erickson AKA Bookworm http://www.bookwormproductions.net
  * @copyright   Copyright 2009 - 2011 Design BreakDown, LLC.
  * @license     http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2       
@@ -31,30 +31,48 @@ class Splex_Config
   var $configParsed = null;     
   
   /**
-   * Config Constructor
+   * Config Constructor     
    *
-   * @param string $configFilename Optional name of a Simplex (not template config) config file load.
+   * @param $options array
+   *   string  ['configFilename'] Optional name of a Simplex (not template config) config file load.   
+   *   boolean ['core']           Are we loading a core config object?
    * @return void
    **/
-  public function __construct($configFilename = null) 
+  public function __construct($options = array()) 
   { 
-    $splex            = getSplexInstance();
-    // If We Have Simplex installed as a plugin we will over-ride some of the settings with params from the plugin.   
-    if(defined('SIMPLEX_LOADED_AS_PLUGIN'))
-      $this->setPluginConfig();
+    $splex = getSplexInstance();          
+    
+    if(isset($options['configFilename'])) 
+      $configFilename = $options['configFilename'];  
     else
-    { 
-      if($splex->minimumMode) 
-       $configFilename = $splex->minimumModeConf;  
-      elseif($splex->ajaxMode) 
-        $configFilename = $splex->ajaxModeConf;
-      elseif($configFilename == null)
-        $configFilename = 'simplex_config.php';
+      $configFilename = null;
+    if(isset($options['core']))
+      $core = $options['core'];       
+    else 
+      $core = true;
+    
+    // If We Have Simplex installed as a plugin we will over-ride some of the settings with params from the plugin.   
+    if($core == true)       
+    {
+      if(defined('SIMPLEX_LOADED_AS_PLUGIN'))
+        $this->setPluginConfig();
+      else
+      { 
+        if($splex->minimumMode) 
+          $configFilename = $splex->minimumModeConf;  
+        elseif($splex->ajaxMode) 
+          $configFilename = $splex->ajaxModeConf;
+        elseif($configFilename == null)
+          $configFilename = 'simplex_config.php';
+      }  
+    }
+    else
+    {
       if(strpos($configFilename, 'php'))  
         $this->loadConfig_Class($configFilename);  
       elseif(strpos($configFilename, 'yaml')) 
         $this->loadConfig_Yaml($configFilename);
-    }   
+    } 
   }    
   
 // ------------------------------------------------------------------------

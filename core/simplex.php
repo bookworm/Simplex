@@ -10,7 +10,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  *    
  * @package     simplex
  * @subpackage  core
- * @version     0.7 alpha 
+ * @version     1.0 beta 
  * @author      Ken Erickson AKA Bookworm http://www.bookwormproductions.net
  * @copyright   Copyright 2009 - 2011 Design BreakDown, LLC.
  * @license     http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2       
@@ -63,23 +63,31 @@ class Simplex Extends Splex_Base
    * @var string Configuration filename for ajax mode.
    **/
   var $ajaxModeConf = 'simplex_ajax_config.php';             
+   
+  /*
+   * @var Holds the JPOG paramter system handling class
+   */
+  var $jpog; 
   
-  var $jpog;
+  /*
+   * @var Holds MUWT, the widget handling class
+   */
   var $muwt;
   
   /**
    * @var string Simplex Version Number
    **/ 
-  const VERSION = "0.7 alpha";  
+  const VERSION = "1.0 beta";  
 
   /**
    * Simplex Constructor
    *
    * @param object $tmpl The Joomla template object passed by reference   
-   * @param string $configFilename Optional name of a Simplex (not template config) config file load.
+   * @param string $configFilename Optional name of a Simplex (not template config) config file load.        
+   * @param bool   $manualInit Set to true and you will need to call Simplex::init() on your own.
    * @return void
    **/
-  function __construct(&$tmpl = null, $configFilename = null)
+  public function __construct(&$tmpl = null, $configFilename = null, $manualInit = false)
   {  
     /**
      * This is a reference to the Joomla! template object,
@@ -92,7 +100,7 @@ class Simplex Extends Splex_Base
 
     // Initialize Simplex
     parent::Base();        
-    $this->init();
+    if($manualInit == false) $this->init();
   }  
 
 // ------------------------------------------------------------------------
@@ -127,7 +135,12 @@ class Simplex Extends Splex_Base
    **/
   private function loadConfig()    
   {   
-    $this->config = $this->loader->load_class('splex_config', 'Splex_Config', 'php', true, $this->MY_SPLEX_CONFIG);    
+    $this->config = $this->loader->load_class('splex_config', 'Splex_Config', 'php', true, 
+                    array('configFilename' => $this->MY_SPLEX_CONFIG));  
+     
+    $tconfigFilename = $this->templateName . '.php';                                   
+    $this->tconfig = $this->loader->load_class('splex_config', 'Splex_Config', 'php', true, 
+                    array('configFilename' => $tconfigFilename, 'core' => false));  
   }    
 
 // ------------------------------------------------------------------------
