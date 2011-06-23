@@ -57,7 +57,7 @@ class Splex_Config
       if(defined('SIMPLEX_LOADED_AS_PLUGIN'))
         $this->setPluginConfig();
       else
-      { 
+      {   
         if($splex->minimumMode) 
           $configFilename = $splex->minimumModeConf;  
         elseif($splex->ajaxMode) 
@@ -66,13 +66,10 @@ class Splex_Config
           $configFilename = 'simplex_config.php';
       }  
     }
-    else
-    {
-      if(strpos($configFilename, 'php'))  
-        $this->loadConfig_Class($configFilename);  
-      elseif(strpos($configFilename, 'yaml')) 
-        $this->loadConfig_Yaml($configFilename);
-    } 
+    if(strpos($configFilename, 'php'))  
+      $this->loadConfig_Class($configFilename);  
+    elseif(strpos($configFilename, 'yaml')) 
+      $this->loadConfig_Yaml($configFilename);
   }    
   
 // ------------------------------------------------------------------------
@@ -85,7 +82,7 @@ class Splex_Config
    * @return mixed
    **/
   public function __get($name)
-  {  
+  {    
     return $this->configVars[$name];
   }     
    
