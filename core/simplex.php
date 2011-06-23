@@ -92,6 +92,7 @@ class Simplex Extends Splex_Base
 
     // Initialize Simplex
     parent::Base();        
+    $this->init();
   }  
 
 // ------------------------------------------------------------------------
