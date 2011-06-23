@@ -161,7 +161,7 @@ class Simplex Extends Splex_Base
     
     // Load Custom User Functions   
     foreach($this->config->customTemplateFiles as $key => $value) {       
-       $this->loader->load_helper($value); 
+      $this->loader->load_helper($value); 
     }
     
     // Load Libraries. Browser class, media class etc. 
