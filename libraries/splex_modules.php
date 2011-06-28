@@ -236,9 +236,8 @@ class Splex_Modules
    */
   function getLayoutPath($module, $layout = 'default', $theme = null)
   {
-    global $mainframe;   
-    
-      $splex =& getSplexInstance();   
+    $mainframe = JFactory::getApplication();   
+    $splex     = getSplexInstance();   
   
     if($themeName == null) 
     {

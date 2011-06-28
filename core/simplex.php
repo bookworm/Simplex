@@ -93,10 +93,10 @@ class Simplex Extends Splex_Base
      * This is a reference to the Joomla! template object,
      * so it is available inside the $splex object. 
      */      
-    $this->template = $tmpl;
+    $this->template        = $tmpl;
     $this->MY_SPLEX_CONFIG = $configFilename;         
-    global $mainframe;
-    $this->templateName = $mainframe->getTemplate();
+    $mainframe             = JFactory::getApplication();
+    $this->templateName    = $mainframe->getTemplate();
 
     // Initialize Simplex
     parent::Base();        

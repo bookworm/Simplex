@@ -46,7 +46,7 @@ class Splex_Media
   public function initMediaGZIP()
   {
     // Setup The Instances 
-    global $mainframe;    
+    $mainframe = JFactory::getApplication();    
     $splex = getSplexInstance();     
 
     // Settings 

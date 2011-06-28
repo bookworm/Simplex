@@ -40,11 +40,11 @@ if(!function_exists('bodyClass'))
 {
   function bodyClass($bodyClass = null) 
   {  
-    global $mainframe;
-    $splex      =   getSplexInstance();
-    $params     =   $mainframe->getParams();   
-    $pageclass  =   $params->get('pageclass_sfx'); 
-    $pageclass .=   ' ' .JRequest::getVar('option');   
+    $mainframe  = JFactory::getApplication();
+    $splex      = getSplexInstance();
+    $params     = $mainframe->getParams();   
+    $pageclass  = $params->get('pageclass_sfx'); 
+    $pageclass .= ' ' .JRequest::getVar('option');   
     
     // Push Classes From Template Config Into the Body Class Array
     if(isset($splex->tconfig->bodyClasses) AND is_array($splex->tconfig->bodyClasses)) 

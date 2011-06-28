@@ -87,7 +87,7 @@ class Splex_Loader
   private function buildFilesArray() 
   {   
     // Setup some objects and declare the needed paths.
-    global $mainframe;
+    $mainframe       = JFactory::getApplication();
     $templatename    = $mainframe->getTemplate();     
     $templatesdir    = JPATH_SITE . DS . 'templates'; 
     $thistemplatedir = JPATH_SITE . DS . 'templates' . DS . $templatename;  
@@ -163,7 +163,7 @@ class Splex_Loader
    **/
   private function genFileWeights($files)
   {  
-    global $mainframe;
+    $mainframe    = JFactory::getApplication();
     $templatename = $mainframe->getTemplate(); 
 
     $splexdir     = $templatename . '/simplex';

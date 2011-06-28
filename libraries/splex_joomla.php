@@ -37,8 +37,8 @@ class Splex_Joomla
    */
   private function _initJoomlaVars()    
   {
-    $document = JFactory::getDocument();    
-    global $mainframe; 
+    $document  = JFactory::getDocument();    
+    $mainframe = JFactory::getApplication(); 
     
     $this->url              = clone(JURI::getInstance());
     $this->site_uri         = JURI::root();      
@@ -106,8 +106,8 @@ class Splex_Joomla
    **/
   private function _contentItemTitle() 
   {
-    $doc = JFactory::getDocument();  
-    global $mainframe;
+    $doc       = JFactory::getDocument();  
+    $mainframe = JFactory::getApplication();
 
     // Get the PathWay object from the application
     $pathway  = $mainframe->getPathway();

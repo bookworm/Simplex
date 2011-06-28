@@ -8,7 +8,7 @@ include_once 'helpers' . DS . 'helpers_array.php';
 include_once 'helpers' . DS . 'helpers_joomla.php';
 
 // Globals and Super Objs  
-global $mainframe;
+$mainframe    = JFactory::getApplication();
 $templatename = $mainframe->getTemplate();    
 $templateOBJ  = JFactory::getDocument();
 define('ABSTRUCTPATH', JPATH_SITE . DS . 'templates' .  DS . $templatename . DS . 'abstruct');  

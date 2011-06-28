@@ -301,7 +301,7 @@ if(!function_exists('component'))
  * Usage:
  * {{{
  *    // Get The Framework
- *    global $mainframe;
+ *    $mainframe = JFactory::getApplication();
  *    $templateName = $mainframe->getTemplate(); 
  *    $path = JPATH_SITE . DS . 'templates' .  DS . $templateName . '/simplex/core/framework.php';
  *    require_once($path);      
