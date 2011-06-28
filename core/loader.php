@@ -436,7 +436,12 @@ class Splex_Loader
    **/
   public function load_class($filename, $classname, $ext = 'php', $instantiate = true, $classArg = null)
   {  
-    $filename = $filename . '.' . $ext; 
+    if(array_key_exists($filename . '_j' . substr(JVERSION, 0, 3) .'.' . $ext, $this->phpfiles)) {
+      $filename = $filename . '_j' . substr(JVERSION, 0, 3) .'.' . $ext;
+    }                                             
+    else {
+      $filename = $filename . '.' . $ext;  
+    }
     if(array_key_exists($filename, $this->phpfiles)) 
     {   
       $path   = $this->getFilePath($filename, 'phpfiles');   

@@ -24,7 +24,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 // ------------------------------------------------------------------------   
 
 // Check that were running PHP 5.2 or newer
-version_compare(PHP_VERSION, '5.2', '<') and exit('Simplex requires PHP 5.2 or newer.');  
+version_compare(PHP_VERSION, '5.2', '<') and exit('Simplex requires PHP 5.2 or newer.');
 
 // Globals and Super Objs  
 $mainframe = JFactory::getApplication();;
