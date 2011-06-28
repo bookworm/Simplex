@@ -125,8 +125,9 @@ class Splex_Modules
    */ 
   function renderModule($module, $attribs = array())
   {
-    static $chrome;
-    global $mainframe, $option;
+    static $chrome;  
+    global $option;  
+    $mainframe = JFactory::getApplication();
 
     $scope = $mainframe->scope; //record the scope
     $mainframe->scope = $module->module;  //set scope to component name
@@ -267,8 +268,9 @@ class Splex_Modules
    * @return  array
    */
   function &_load()
-  {
-    global $mainframe, $Itemid;
+  {    
+    $mainframe = JFactory::getApplication();
+    global $Itemid;
 
     static $modules;
 
