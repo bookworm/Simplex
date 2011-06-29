@@ -5,8 +5,9 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 // ------------------------------------------------------------------------
 
-/**
- * Menu Class. Just Generates A Menu. Most of the cool stuff happens in the over-ride.      
+/**   
+ * 1.6 Version Not done yet at all. DO NOT use.
+ * Menu Class. Just Generates A Menu. Most of the cool stuff happens in the over-ride.    
  *
  * @note This is now called jMenu because its only going to be used for the Joomla! mainmenu module.
  *  I'm rolling a custom built menu module vary soon that will integrate with Simplex.
@@ -39,27 +40,5 @@ class Splex_JMenu
     $splex    =& getSplexInstance();  
     $document =& JFactory::getDocument();       
               
-    if($type == 'dropdown')
-    {   
-      $renderer         = $document->loadRenderer( 'module' ); 
-      $menu             = Splex_Modules::getModule($menuType, $menuName);
-      $menuParams       = new JParameter( $menu->params );      
-      $menuClass        = $menuClass . ' ' . $menuParams->get( 'class_sfx' ); 
-      $menuId           = $menuID . ' ' . $menuParams->get( 'tag_id' );
-      $menu->params     = "showAllChildren=1\ntag_id=" . $menuID . "\nclass_sfx=" . ' dropdown ' . $menuClass;
-      $attribs['style'] = 'raw';                                                                          
-      echo $renderer->render($menu, $attribs);                                                  
-    }                                                                                                                                                                                                              
-    else                                                                                                    
-    {                                                                                                       
-      $renderer         = $document->loadRenderer( 'module' );                                                  
-      $menu             = Splex_Modules::getModule($menuType, $menuName);                                            
-      $menuParams       = new JParameter( $menu->params );                                                      
-      $menuClass        = $menuClass . ' ' . $menuParams->get( 'class_sfx' );                                    
-      $menuId           = $menuID . ' ' . $menuParams->get( 'tag_id' );                                             
-      $menu->params     = "showAllChildren=1\ntag_id=" . $menuID . "\nclass_sfx=" . ' dropdown ' . $menuClass;
-      $attribs['style'] = 'raw';            
-      echo $renderer->render($menu, $attribs);  
-    }  
   }
 }
