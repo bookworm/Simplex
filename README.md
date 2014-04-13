@@ -149,3 +149,8 @@ The Obligatory license
 ======================  
 This project is licensed under GPL http://www.gnu.org/licenses/gpl-2.0.html  
 Simplex is a creation from the mind of Bookworm, AKA Ken Erickson.       
+
+## Support
+
+If you found this repo useful please consider supporting me on [Gittip](https://www.gittip.com/k2052) or sending me some
+bitcoin `1csGsaDCFLRPPqugYjX93PEzaStuqXVMu`
